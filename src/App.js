@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Loadable from 'react-loadable';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import RouterWithPaths from '@src/component/RouterWithPath'
+import Admin from '../src/site/admin'
 
-function App() {
+
+function app() {
+
+  const router = [
+    {
+      path: ["/", "/:function1", "/:function1/:id", "/:function1/:function2/:id"],
+      component: Admin
+    },
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          {
+            router.map((item, index) => {
+              if (item.component) {
+                return (
+                  <RouterWithPaths
+                    exact
+                    key={index}
+                    path={item.path}
+                    render={(props) => {
+                      return <item.component {...props} />;
+                    }}
+                  />
+                )
+              }
+            })
+          }
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+export default app;
