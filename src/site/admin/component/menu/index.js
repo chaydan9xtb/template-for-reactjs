@@ -29,7 +29,7 @@ function index() {
 
   return (
     <div className="menu">
-      <ul>
+      <ul className="container">
         {
           menus.map((menu, index) => {
             if (menu.name) {

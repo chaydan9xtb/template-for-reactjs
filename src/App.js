@@ -1,6 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import RouterWithPaths from '@src/component/RouterWithPath'
 import Admin from '../src/site/admin'
 
@@ -16,7 +15,7 @@ function app() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Switch>
           {
             router.map((item, index) => {
@@ -35,7 +34,7 @@ function app() {
             })
           }
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

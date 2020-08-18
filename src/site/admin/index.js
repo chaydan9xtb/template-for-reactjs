@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Loadable from 'react-loadable';
 import Loading from '@admin/component/loading';
 import Header from '@admin/component/header';
 import Footer from '@admin/component/footer';
 import { Switch, Route } from 'react-router-dom';
-import RouterWithPath from '../../component/RouterWithPath';
+import './style.scss'
+// import RouterWithPath from '../../component/RouterWithPath';
 
 function index(props) {
-
-  // useEffect(() => {
-  // window.registerEvent();
-  // });
 
   const routers = [
     {
@@ -56,23 +53,25 @@ function index(props) {
     <div>
       <Header></Header>
       <Switch>
-        {
-          routers.map((item, index) => {
-            if (item.component) {
-              return (
-                <Route exact key={index} path={item.path} component={item.component} />
-                // <RouterWithPath
-                //   exact
-                //   key={index}
-                //   path={item.path}
-                //   render={(props) => {
-                //     return <item.component {...props} />;
-                //   }}
-                // />
-              )
-            }
-          })
-        }
+        <div className="body">
+          {
+            routers.map((item, index) => {
+              if (item.component) {
+                return (
+                  <Route exact key={index} path={item.path} component={item.component} />
+                  // <RouterWithPath
+                  //   exact
+                  //   key={index}
+                  //   path={item.path}
+                  //   render={(props) => {
+                  //     return <item.component {...props} />;
+                  //   }}
+                  // />
+                )
+              }
+            })
+          }
+        </div>
       </Switch>
       <Footer></Footer>
     </div>
