@@ -53,23 +53,22 @@ function index(props) {
     <div>
       <Header></Header>
       <Switch>
-        <div className="body">
-          {
-            routers.map((item, index) => {
-              if (item.component) {
-                return (
-                  <Route exact key={index} path={item.path} component={item.component} />
-                  // <RouterWithPath
-                  //   exact
-                  //   key={index}
-                  //   path={item.path}
-                  //   render={(props) => {
-                  //     return <item.component {...props} />;
-                  //   }}
-                  // />
-                )
-              }
-            })
+        <div className="body1">
+          {routers.map((item, index) => {
+            if (item.component) {
+              return (
+                <Route exact key={index} path={item.path} component={item.component}/>
+                // <RouterWithPath
+                //   exact
+                //   key={index}
+                //   path={item.path}
+                //   render={(props) => {
+                //     return <item.component {...props} />;
+                //   }}
+                // />
+              )
+            }
+          })
           }
         </div>
       </Switch>
