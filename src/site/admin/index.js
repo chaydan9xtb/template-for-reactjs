@@ -52,12 +52,12 @@ function index(props) {
   return (
     <div>
       <Header></Header>
-      <Switch>
-        <div className="body1">
+      <div className="body1">
+        <Switch>
           {routers.map((item, index) => {
             if (item.component) {
               return (
-                <Route exact key={index} path={item.path} component={item.component}/>
+                <Route exact key={index} path={item.path} component={item.component} />
                 // <RouterWithPath
                 //   exact
                 //   key={index}
@@ -70,10 +70,10 @@ function index(props) {
             }
           })
           }
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       <Footer></Footer>
-    </div>
+    </div >
   )
 }
 
